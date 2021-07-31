@@ -7,6 +7,10 @@
   font-family: 'Ubuntu', sans-serif;
 }
 
-.App {
-  text-align: center;
+body {
+  background-color: #000b3a;
 }
+
+.App {
+}
+
