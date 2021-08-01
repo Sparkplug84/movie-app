@@ -8,9 +8,14 @@
 }
 
 body {
-  background-color: #000b3a;
+  background-color: #25313d;
 }
 
 .App {
+  display: flex;
+  justify-content: center;
 }
 
+.container {
+  width: 1200px;
+}
