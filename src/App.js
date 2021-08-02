@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Movies from './components/Movies'
+import Search from './components/Search'
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
+        <Search />
         <Movies movies={movies} />
       </div>
     </div>
