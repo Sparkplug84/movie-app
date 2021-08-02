@@ -5,6 +5,7 @@
     box-shadow: 3px 3px 8px 1px rgba(0,0,0,0.44);
     position: relative;
     overflow: hidden;
+    border-radius: 25px;
 }
 
 .movie__image {
@@ -48,7 +49,6 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    box-shadow: 3px 3px 8px 1px rgba(0,0,0,0.44);
 }
 
 .movie__info a:active {

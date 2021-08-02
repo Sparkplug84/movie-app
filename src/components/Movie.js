@@ -1,13 +1,30 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfo } from '@fortawesome/free-solid-svg-icons'
 import './Movie.css'
 
 function Movie({title,poster,year,imdbID}) {
-
     const [movieInfo, setMovieInfo] = useState(false)
+    const [movieDetails, setMovieDetails] = useState({})
+
+    const getMovieDetails = async () => {
+        // Function to call the API to retrieve further movie details
+        const MOVIE_API_DETAILS = `https://www.omdbapi.com/?i=tt1201607&apikey=aa19cb4`
+        const res = await fetch(MOVIE_API_DETAILS)
+        const details = await res.json()
+        if(details) {
+          setMovieDetails(details)
+        }
+      }
+
+    useEffect(() => {
+        // Function to call the API function above on loading
+        getMovieDetails()
+    }, [])
+      
 
     const revealInfo = () => {
+        // Function to toggle the movie info display
         setMovieInfo(!movieInfo)
     }
 

@@ -5,24 +5,27 @@ import './App.css';
 
 function App() {
   const [movies, setMovies] = useState([])
+  const [searchInput, setSearchInput] = useState('')
 
-  const getMovies = async () => {
-    const MOVIE_API = "https://www.omdbapi.com/?s=back+to+the+future&apikey=aa19cb4"
+  const getMovies = async (searchInput) => {
+    // Function to call the API dynamically with the search input and save the results in a variable
+    const MOVIE_API = `https://www.omdbapi.com/?s=${searchInput}&apikey=aa19cb4`
     const res = await fetch(MOVIE_API)
     const data = await res.json()
-    console.log(data)
-    setMovies(data.Search)
-
+    if(data.Search) {
+      setMovies(data.Search)
+    }
   }
 
   useEffect(() => {
-    getMovies()
-  }, [])
+    // Function to call the API every time the application loads
+    getMovies(searchInput)
+  }, [searchInput])
 
   return (
     <div className="App">
       <div className="container">
-        <Search />
+        <Search searchInput={searchInput} setSearchInput={setSearchInput} />
         <Movies movies={movies} />
       </div>
     </div>

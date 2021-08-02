@@ -2,8 +2,7 @@
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: left;
-    margin-left: 20px;
+    justify-content: center;
 }
 
 .search {
@@ -44,9 +43,9 @@
 }
 
 .search.active .search__input {
-    width: 200px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    width: 248px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
 
 .search.active .search__button {
