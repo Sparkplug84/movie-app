@@ -15,58 +15,8 @@
     margin-bottom: -4px;
 }
 
-.movie__info {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    width: 100%;
-    height: 405px;
-    transform: translateX(101%);
-    transition: transform 0.3s ease-in-out;
-    top: 0;
-    background-color: #1481ba;
-    color: #fff;
-    overflow: auto;
-}
-
-.movie__info p, a {
-    padding: 10px;
-    text-align: center;
-}
-
-.movie__info a {
-    position: absolute;
-    bottom: 20px;
-    width: 70%;
-    height: 40px;
-    background-color: #25313d;
-    color: #fff;
-    border: 1px #000 solid;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-.movie__info a:active {
-    transform: scale(0.95);
-}
-
-.movie__info a img {
-    width: 50px;
-    height: auto;
-    margin-left: 5px;
-}
-
-/* .movie__image .movie__info {
-    transform: translateX(0);
-} */
-
 .movie__infoReveal {
-    transform: translateX(0);
+    display: block !important;
 }
 
 .movie__details {
@@ -92,4 +42,103 @@
     height: 25px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.movie__popup {
+    display: none;
+    margin: auto;
+    width: 95vw;
+    height: 95vh;
+    border: 3px solid #f7d12a;
+    border-radius: 25px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #034748;
+    color: #dfdfdf;
+    overflow: auto;
+    z-index: 2;
+}
+
+.movie__popupContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.movie__popupHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+table {
+    border-spacing: 0 20px;
+}
+
+.movie__infoCategories {
+    width: 30%;
+    vertical-align:top;
+}
+
+.movie__infoDetails {
+    width: 70%;
+}
+
+.movie__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie__link a {
+    width: 70%;
+    height: 40px;
+    background-color: #25313d;
+    color: #dfdfdf;
+    border: 1px #000 solid;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.movie__link a:active {
+    transform: scale(0.95);
+}
+
+.movie__link a img {
+    width: 50px;
+    height: auto;
+    margin-left: 5px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500%;
+    background-color: rgba(105, 105, 105, 0.548);
+    z-index: 1;
+}
+
+.modal__display {
+    display: block;
+}
+
+@media only screen and (min-width: 500px){
+    .movie__popup {
+        width: 500px !important;
+        height: 700px !important;
+    }
 }
