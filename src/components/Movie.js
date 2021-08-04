@@ -93,10 +93,13 @@ function Movie({title,imdbID,featuredMovie}) {
                             </tr>
                         </tbody>
                     </table>
-                    
-                    <div className="movie__link">
-                        <a href={`https://www.imdb.com/title/${imdbID}/`} target="_blank" rel="noreferrer">View details on <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/1200px-IMDB_Logo_2016.svg.png" alt="IMDB"></img></a>
-                    </div>
+                    { imdbID ?
+                        <div className="movie__link">
+                            <a href={`https://www.imdb.com/title/${imdbID}/`} target="_blank" rel="noreferrer">View details on <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/1200px-IMDB_Logo_2016.svg.png" alt="IMDB"></img></a>
+                        </div>
+                        :
+                        null
+                    }
                 </div>
                 
             </div>
