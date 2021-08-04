@@ -1,0 +1,31 @@
+nav {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    width: 100%;
+    background-color: #034748;
+    box-shadow: 3px 3px 8px 1px rgba(0,0,0,0.44);
+}
+
+.nav__logo {
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.nav__logo h2 {
+    font-family: 'Staatliches', sans-serif !important;
+    font-size: 30px;
+}
+
+nav img {
+    height: 70px;
+    margin-right: 10px;
+}
+
+.nav__mode {
+    margin-right: 15px;
+    cursor: pointer;
+}

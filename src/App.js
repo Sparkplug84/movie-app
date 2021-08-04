@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import Movies from './components/Movies'
 import Search from './components/Search'
+import Header from './components/Header';
 import './App.css';
 
 function App() {
   const [movies, setMovies] = useState([])
   const [searchInput, setSearchInput] = useState('')
+  const [darkMode, setDarkMode] = useState(true)
 
   const getMovies = async (searchInput) => {
     // Function to call the API dynamically with the search input and save the results in a variable
@@ -23,12 +25,16 @@ function App() {
   }, [searchInput])
 
   return (
-    <div className="App">
-      <div className="container">
-        <Search searchInput={searchInput} setSearchInput={setSearchInput} />
-        <Movies movies={movies} />
+    <>
+      <style>{`body {background-color:${darkMode ? null : 'rgb(240, 240, 240)'}`}</style>
+      <div className="App">
+        <Header darkMode={darkMode} setDarkMode={setDarkMode}/>
+        <div className="container">  
+          <Search searchInput={searchInput} setSearchInput={setSearchInput} />
+          <Movies movies={movies} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
