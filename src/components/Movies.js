@@ -5,7 +5,7 @@ import './Movies.css'
 function Movies(props) {
 
     const resetInput = () => {
-        // Function to clear
+        // Function to clear the search input field and reset the movies array to empty
         props.setSearchInput("");
         props.setMovies([])
       };
@@ -14,14 +14,12 @@ function Movies(props) {
         <>
             { props.searchInput ?
                 <div className="movies__results">
-                    <p>{`${props.movies.length} results found for "${props.searchInput}"`}</p>
-                    <button onClick={resetInput}>Clear Search</button>
+                    <p className={`${props.darkMode ? null : 'movies__lightMode'}`}>{`${props.movies.length} results found for "${props.searchInput}"`}</p>
+                    <button onClick={resetInput}>Clear</button>
                 </div>
             : null
             }
             <div className="movies__container">
-                
-                
                 {
                     props.movies.map((movie) =>(
                         <Movie key={movie.imdbID} title={movie.Title} poster={movie.Poster} imdbID={movie.imdbID} year={movie.Year} />

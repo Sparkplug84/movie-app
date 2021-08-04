@@ -2,15 +2,16 @@ import React, {useEffect, useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfo } from '@fortawesome/free-solid-svg-icons'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 import './Movie.css'
 
-function Movie({title,poster,imdbID}) {
+function Movie({title,imdbID,featuredMovie}) {
     const [movieInfo, setMovieInfo] = useState(false)
     const [movieDetails, setMovieDetails] = useState({})
 
     const getMovieDetails = async () => {
-        // Function to call the API to retrieve further movie details
-        const MOVIE_API_DETAILS = `https://www.omdbapi.com/?i=${imdbID}&apikey=aa19cb4`
+        // Function to call the API to retrieve further movie details from the imdbID or featured movie ID
+        const MOVIE_API_DETAILS = `https://www.omdbapi.com/?i=${imdbID ? imdbID : featuredMovie}&apikey=aa19cb4`
         const res = await fetch(MOVIE_API_DETAILS)
         const details = await res.json()
         if(details) {
@@ -37,13 +38,20 @@ function Movie({title,poster,imdbID}) {
     return (
         <>
             <div key={imdbID} className="movie">
-                <img className="movie__image" src={poster !== "N/A" ? poster : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png"} alt={title} />
+                <img className="movie__image" src={movieDetails.Poster !== "N/A" ? movieDetails.Poster : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png"} alt={title} />
                 <div className="movie__details">
-                    <h4>{title}</h4>
-                    <div className="movie__infoIcon" onClick={revealInfo}>
-                        <FontAwesomeIcon icon={faInfo} />
+                    <div className="movie__title">
+                        <h4>{movieDetails.Title}</h4>
+                        <div className="movie__infoIcon" onClick={revealInfo}>
+                            <FontAwesomeIcon icon={faInfo} />
+                        </div>
+                    </div>
+                    <div className="movie__title">
+                        <small><FontAwesomeIcon className="movie__starIcon" icon={faStar} color="#ffd230"/>{movieDetails.imdbRating}</small>
+                        <small>{movieDetails.Year}</small>
                     </div>
                 </div>
+                
             </div>
 
             <div className={`movie__popup ${movieInfo ? 'movie__infoReveal' : null}`}>

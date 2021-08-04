@@ -5,7 +5,9 @@ import { faMoon } from '@fortawesome/free-solid-svg-icons'
 import './Header.css'
 
 function Header(props) {
+
     const setMode = () => {
+        // Function to toggle the light/dark mode
         props.setDarkMode(!props.darkMode)
     }
     return (

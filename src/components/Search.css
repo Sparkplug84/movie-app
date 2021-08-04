@@ -1,5 +1,5 @@
 .search__container {
-    height: 100px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,15 +11,16 @@
 }
 
 .search__input {
+    box-sizing: border-box;
     background-color: #034748;
     color: #fff;
     border: 0;
     border-radius: 50px;
     font-size: 14px;
-    height: 58px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     transition: width 0.3s ease;
-    padding-left: 10px;
+    padding-left: 20px;
     box-shadow: 3px 3px 8px 1px rgba(0,0,0,0.44);
 }
 
@@ -42,9 +43,10 @@
 }
 
 .search.active .search__input {
-    width: 248px;
+    width: 260px;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
+    height: 60px;
 }
 
 .search.active .search__button {
