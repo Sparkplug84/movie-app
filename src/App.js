@@ -22,6 +22,9 @@ function App() {
   useEffect(() => {
     // Function to call the API every time the application loads
     getMovies(searchInput)
+    if (searchInput == '') {
+      setMovies([])
+    }
   }, [searchInput])
 
   return (
@@ -30,8 +33,8 @@ function App() {
       <div className="App">
         <Header darkMode={darkMode} setDarkMode={setDarkMode}/>
         <div className="container">  
-          <Search searchInput={searchInput} setSearchInput={setSearchInput} />
-          <Movies movies={movies} />
+          <Search searchInput={searchInput} setSearchInput={setSearchInput} setMovies={setMovies} />
+          <Movies movies={movies} searchInput={searchInput} setSearchInput={setSearchInput} setMovies={setMovies} />
         </div>
       </div>
     </>

@@ -89,6 +89,7 @@ table {
 
 .movie__infoDetails {
     width: 70%;
+    vertical-align:top;
 }
 
 .movie__link {
@@ -138,7 +139,7 @@ table {
 
 @media only screen and (min-width: 500px){
     .movie__popup {
-        width: 500px !important;
-        height: 700px !important;
+        max-width: 500px !important;
+        max-height: 700px !important;
     }
 }

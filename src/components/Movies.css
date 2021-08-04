@@ -3,3 +3,25 @@
     grid-template-columns: repeat(auto-fit, 300px);
     justify-content: center;
 }
+
+.movies__results {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 10px;
+    color: #fff;
+}
+
+.movies__results button, p {
+    background-color: #034748;
+    color: #fff;
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 3px 3px 8px 1px rgba(0,0,0,0.44);
+}
+
+.movies__results button {
+    cursor: pointer;
+}

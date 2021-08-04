@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import './Search.css'
 
-function Search({searchInput, setSearchInput}) {
+function Search({searchInput, setSearchInput, setMovies}) {
     const [expand, setexpand] = useState(false)
     const searchRef = useRef();
 
