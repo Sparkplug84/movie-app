@@ -22,7 +22,7 @@ function Movies(props) {
             <div className="movies__container">
                 {
                     props.movies.map((movie) =>(
-                        <Movie key={movie.imdbID} title={movie.Title} poster={movie.Poster} imdbID={movie.imdbID} year={movie.Year} />
+                        <Movie key={movie.imdbID} title={movie.Title} poster={movie.Poster} imdbID={movie.imdbID} year={movie.Year} isLoading={props.isLoading} />
                     ))
                 }
             </div>

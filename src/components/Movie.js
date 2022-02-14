@@ -5,7 +5,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import './Movie.css'
 
-function Movie({title,imdbID,featuredMovie}) {
+function Movie({title,imdbID,featuredMovie,isLoading}) {
     const [movieInfo, setMovieInfo] = useState(false)
     const [movieDetails, setMovieDetails] = useState({})
 
@@ -37,12 +37,15 @@ function Movie({title,imdbID,featuredMovie}) {
 
     return (
         <>
-            <div key={imdbID} className="movie">
-                <img className="movie__image" src={movieDetails.Poster !== "N/A" ? movieDetails.Poster : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png"} alt={title} />
+            <div key={imdbID} className="movie" onClick={revealInfo}>
+                {
+                    isLoading ? <div className='spinner'></div> :
+                    <img className="movie__image" src={movieDetails.Poster !== "N/A" ? movieDetails.Poster : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png"} alt={title} />
+                }
                 <div className="movie__details">
                     <div className="movie__title">
                         <h4>{movieDetails.Title}</h4>
-                        <div className="movie__infoIcon" onClick={revealInfo}>
+                        <div className="movie__infoIcon">
                             <FontAwesomeIcon icon={faInfo} />
                         </div>
                     </div>

@@ -9,6 +9,7 @@ function App() {
   const [movies, setMovies] = useState([])
   const [searchInput, setSearchInput] = useState('')
   const [darkMode, setDarkMode] = useState(true)
+  const [isLoading, setIsLoading] = useState(false);
   const featuredMovies = (['tt1675434', 'tt0758758', 'tt0114369', 'tt0119488', 'tt0488120'])
   // Randomly display one of five featured movies above on landing at webpage
   var featuredMovie = featuredMovies[Math.floor(Math.random()*featuredMovies.length)];
@@ -16,12 +17,16 @@ function App() {
   const getMovies = async (searchInput) => {
     // Function to call the API dynamically with the search input and save the results in a variable
     const MOVIE_API = `https://www.omdbapi.com/?s=${searchInput}&apikey=aa19cb4`
+    setIsLoading(true)
     const res = await fetch(MOVIE_API)
+    
     const data = await res.json()
     if(data.Search) {
       setMovies(data.Search)
     }
+    setInterval(() => setIsLoading(false), 1000 )    
   }
+  
 
   useEffect(() => {
     // Function to call the API every time the application loads
@@ -39,13 +44,13 @@ function App() {
         <div className="container">  
           <Search searchInput={searchInput} setSearchInput={setSearchInput} setMovies={setMovies} />
           { searchInput ? 
-            <Movies movies={movies} searchInput={searchInput} setSearchInput={setSearchInput} setMovies={setMovies} darkMode={darkMode} />
+            <Movies movies={movies} searchInput={searchInput} setSearchInput={setSearchInput} setMovies={setMovies} darkMode={darkMode} isLoading={isLoading} />
             :
             <>
               <div className={`featured__movie ${darkMode ? null : 'text__black'}`}>
                 <h2>Featured Movie</h2>
               </div>
-              <Movie featuredMovie={featuredMovie} />
+              <Movie featuredMovie={featuredMovie} isLoading={isLoading} />
             </>
           }
         </div>

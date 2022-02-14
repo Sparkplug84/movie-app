@@ -8,11 +8,45 @@
     border-radius: 25px;
 }
 
+.movie:hover {
+    cursor: pointer;
+}
+
 .movie__image {
     width: 100%;
     height: 425px;
     object-fit: cover;
     margin-bottom: -4px;
+}
+
+.spinner {
+    width: 100%;
+    height: 425px;
+}
+
+.spinner::before {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    animation: 1.5s linear infinite spinner;
+    animation-play-state: inherit;
+    border: solid 5px #fff;
+    border-bottom-color: #034748;
+    border-radius: 50%;
+    content: "";
+    height: 40px;
+    transform: translate3d(-50%, -50%, 0);
+    width: 40px;
+    will-change: transform;
+}
+
+@keyframes spinner {
+    0% {
+        transform: translate3d(-50%, -50%, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate3d(-50%, -50%, 0) rotate(360deg);
+    }
 }
 
 .movie__infoReveal {
